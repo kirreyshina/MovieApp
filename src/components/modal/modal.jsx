@@ -1,46 +1,35 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 import { IMG_API} from '../movie_item/movie_item';
 import './modal.css';
 
-const ModalWindow = ({title, overview, posterPath, releaseData, voteAverage}) => {
-  const [modalIsOpen,setIsOpen] = useState(false);
-
-  function openModal () {
-    setIsOpen(true);
-  };
- 
-  function closeModal () {
-    setIsOpen(false);
-  };
+const ModalWindow = ({ movie, onClose }) => {
+  const { title, overview, poster_path, release_date, vote_average } = movie || {};
  
   return (
     <div>
-      <button 
-        className="over-btn"
-        onClick={openModal}>
-          Overview
-      </button>
       <Modal 
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
+        isOpen={movie !== null} 
+        onRequestClose={onClose}
         overlayClassName="modal-overlay" 
         className="modal-content">
         <button  
           className="close"
-          onClick={closeModal}>
+          onClick={onClose}>
             X
         </button>
         <div className="modal-info">
           <div className="modal-info-img">
-            <img src={`${IMG_API}${posterPath}`} alt={title}/>
+            <img src={`${IMG_API}${poster_path}`} alt={title}/>
           </div>
           <div className="info">
             <div className="title_modal">{title}</div>
             <div className="overview">{overview}</div>
             <div className="release-box">
-              <div className="release-data">Release: {releaseData.substring(0,4)}</div>
-              <div className="vote_average">Rating: {voteAverage}</div>
+              <div className="release-data">
+                Release: {release_date}
+              </div>
+              <div className="vote_average">Rating: {vote_average}</div>
             </div>
           </div>
         </div>

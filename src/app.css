@@ -51,6 +51,9 @@ input {
   width:250px;
   cursor:pointer;
 }
+.movie:hover {
+  box-shadow: 0px 0px 7px -2px #ccc;
+}
 .movie img {
   object-fit:cover;
   height: 400px;
@@ -80,6 +83,7 @@ input {
   font-size: 19px;
   font-weight:bold;
   text-align: center;
+  box-shadow: 0px 0px 7px -2px #ccc;
 }
 .tag.green {
   color:green;
