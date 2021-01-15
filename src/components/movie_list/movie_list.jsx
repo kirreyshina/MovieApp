@@ -3,8 +3,7 @@ import Movie_item from '../movie_item/movie_item';
 import ModalWindow from '../modal/modal';
 import Pagination from '../Pagination/Pagination';
 
-const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=e7c5fa2d6252bbbcb1bc5fc52508bc02&query=`; 
-const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e7c5fa2d6252bbbcb1bc5fc52508bc02&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=`;
+import { search, fetch } from '../../../src/api/search';
 
 const Movie_list = () => {
   const [movies, setMovies] = useState([]);
@@ -15,26 +14,29 @@ const Movie_list = () => {
   const [results, setResults] = useState(0);
 
   useEffect(() => {
-    getMovies(FEATURED_API);
-  }, [searchTerm]);
+    const init = async() => {
+      if(searchTerm) {
+        const data = await search(searchTerm);
+        result(data);
+      }else {
+        const data = await fetch(currentPage + 1);
+        result(data);
+      }
+    }
+      init()
+  }, [currentPage, searchTerm]);
 
-  const getMovies = (API) => {
-    fetch(API)
-    .then((res) => res.json())
-    .then((data) => {
-      setMovies(data.results);
-      setResults(data.total_results);
-      setTotalPage(data.total_pages);
-    });
+  const result = (data) => {
+    const { total_pages, results, total_results } = data;
+      setTotalPage(total_pages);
+      setMovies(results);
+      setResults(total_results);
   };
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-
-    if(searchTerm) {
-      getMovies(SEARCH_API + searchTerm);
       setSearchTerm(searchTerm);
-    }
+
   };
    
   const handleOnChange = (searchTerm) => {
@@ -42,12 +44,9 @@ const Movie_list = () => {
   };
 
   const pageClick = ({selected:selectedPage}) => {
-    if(searchTerm){
-      setSearchTerm(searchTerm);
-      setCurrentPage(selectedPage)
-    }
-    setCurrentPage(selectedPage);
- }
+      setCurrentPage(selectedPage);
+  };
+
 
   return (
     <div>
