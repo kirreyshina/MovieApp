@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
 
 *{
   box-sizing: border-box;
@@ -93,6 +94,25 @@ input {
 }
 .tag.red {
   color:red;
+}
+.results{
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px 100px;
+  color: #acd3fb;
+  background-color: rgb(0 0 0 / 30%);
+  border-radius: 5px;
+  border: 2px solid #ffffffa5;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.9);
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px;
+}
+.results span{
+  font-size: 31px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: -2px 5px 4px #000;
 }
 
 

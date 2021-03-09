@@ -1,4 +1,5 @@
 import React from 'react';
+import TrailerMovies from '../trailer/trailerMovies/trailerMovies';
 
 export const IMG_API = `https://image.tmdb.org/t/p/w1280`;
 
@@ -13,7 +14,7 @@ const setVoteClass = (vote) => {
 };
 
 const Movie_item = ({ movie, onMovieClick }) => {
-  const { title, poster_path, vote_average } = movie;
+  const { title, poster_path, vote_average, id } = movie;
 
   return (  
     <div 
@@ -26,7 +27,8 @@ const Movie_item = ({ movie, onMovieClick }) => {
         <div className={`tag ${setVoteClass(vote_average)}`}>
         {vote_average}
         </div>
-      </div>  
+      </div>
+      <TrailerMovies openTrailer={id} /> 
   </div> 
   )
 };

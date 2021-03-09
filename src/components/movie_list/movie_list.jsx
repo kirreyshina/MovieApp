@@ -21,8 +21,8 @@ const Movie_list = () => {
       }else {
         const data = await fetch(currentPage + 1);
         result(data);
-      }
-    }
+    }}
+    
       init()
   }, [currentPage, searchTerm]);
 
@@ -60,7 +60,12 @@ const Movie_list = () => {
           />
         </form>
      </div>
-     <div className="total_movies">{results}</div>
+     <div className="results">
+        <p>Found 
+          <span>{results}</span> 
+          movies
+        </p>
+      </div>
       <div className="movie-container">
         {movies.length > 0 && movies.map((movie) => 
         // eslint-disable-next-line react/jsx-pascal-case

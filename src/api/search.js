@@ -9,3 +9,7 @@ export const search = (query) => {
   return get('/search/movie', { 
     params: { query } });
 };
+
+export const trailerMovies = (movies) => {
+  return get(`/movie/${movies}/videos`, {params: {}});
+}; 

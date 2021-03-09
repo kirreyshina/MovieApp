@@ -37,7 +37,7 @@
   margin-bottom:1rem;
   text-transform: uppercase;
 }
-.overview{
+.overview {
   font-family:"Poppins", sans-serif;
   font-size: 17px;
   font-weight: 400;;
@@ -48,42 +48,30 @@
 }
 .release-box {
   display:flex;
-  flex-direction: row;
+  width: 300px;
+  justify-content: space-between;
 }
-.release-data {
+.release-data,
+.vote_average {
   color:#000;
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
-  margin:0 3rem 0.5rem 0px;
-  padding-top: 0.6rem;
   border-radius:5px;
-  font-weight:bold;
   width:130px;
   height:40px;
   background-color: #bfc0fed4;
   text-align: center;
 }
-.vote_average {
-  font-family: "Poppins", sans-serif;
-  font-size: 18px;
-  color:#000;
-  background-color: #bfc0fed4;
-  text-align: center;
-  padding-top: 0.5rem;
-  border-radius:5px;
-  font-weight:600;
-  width:100px;
-  height:40px;
-}
 .close {
   width: 40px;
   height: 40px;
   background-color: rgb(241, 159, 159);
-  border-radius:75px;
+  border-radius: 3px;
   cursor:pointer;
   margin: 0.3rem 0.3rem 0.3rem 44rem;
   font-size:22px;
+  text-align: center;
 }
 .close:hover {
   background-color: rgb(241, 95, 95);
