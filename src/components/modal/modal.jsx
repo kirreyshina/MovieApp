@@ -27,7 +27,7 @@ const ModalWindow = ({ movie, onClose }) => {
             <div className="overview">{overview}</div>
             <div className="release-box">
               <div className="release-data">
-                Release: {release_date}
+                Release: {release_date ? release_date.substring(0,4) : 'No date'}
               </div>
               <div className="vote_average">Rating: {vote_average}</div>
             </div>

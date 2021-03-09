@@ -61,7 +61,7 @@
   width:130px;
   height:40px;
   background-color: #bfc0fed4;
-  text-align: center;
+  padding: 9px 5px;
 }
 .close {
   width: 40px;
